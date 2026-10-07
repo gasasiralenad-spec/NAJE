@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naje</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="kfs-badge" aria-hidden="true">
+                <span class="shape circle"></span>
+                <span class="shape triangle"></span>
+                <span class="shape pill"></span>
+            </div>
+            <h1 class="brand-name">NAJE<span class="dot">.</span></h1>
+        </div>
+
+        <div class="header-controls">
+            <!-- Bus Stop / Station Selector -->
+            <div class="location-badge">
+                <span class="icon">📍</span>
+                <select id="station-select" aria-label="Select Bus Station">
+                    <option value="nyabugogo">Nyabugogo Main Terminal</option>
+                    <option value="kimironko">Kimironko Bus Park</option>
+                    <option value="remera">Remera Station</option>
+                    <option value="kicukiro">Kicukiro Centre</option>
+                </select>
+            </div>
+
+            <!-- i18n Language Selector -->
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="rw">RW</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- Express Hero Banner for Commuters -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2 data-i18n="hero_title">Infunguro rya Express ku rugendo!</h2>
+                <p data-i18n="hero_subtitle">Tumiza ibyo kurya mu minota  mike  ujyereyo amahoro</p>
+            </div>
+            <div class="speed-badge">
+                <span class="lightning">⚡</span>
+                <span data-i18n="quick_pickup">Pick-up mu minota 5</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Category Filter Pill Navigation -->
+        <nav class="category-nav">
+            <button class="cat-pill active" data-category="all" data-i18n="cat_all">Ibyo Kurya Byose</button>
+            <button class="cat-pill" data-category="combos" data-i18n="cat_combos">Express Combos</button>
+            <button class="cat-pill" data-category="burgers" data-i18n="cat_burgers">Burgers & Wraps</button>
+            <button class="cat-pill" data-category="drinks" data-i18n="cat_drinks">Ibinyobwa</button>
+            <button class="cat-pill" data-category="snacks" data-i18n="cat_snacks">Fast Snacks</button>
+        </nav>
+
+        <!-- Food Menu Grid -->
+        <section class="menu-grid" id="menu-container">
+            <!-- Dynamic Items populated by app.js -->
+        </section>
+
+    </main>
+
+    <!-- Floating Order Summary & Checkout Trigger Bar -->
+    <div class="cart-floating-bar" id="cart-bar">
+        <div class="cart-info">
+            <span class="cart-count-badge" id="cart-count">0</span>
+            <div>
+                <span class="cart-label" data-i18n="cart_total">Igiteranyo:</span>
+                <span class="cart-price" id="cart-total">0 RWF</span>
+            </div>
+        </div>
+        <button class="kfs-btn-primary" id="btn-checkout">
+            <span class="btn-text" data-i18n="checkout_btn">Komeza Umurongo</span>
+            <span class="btn-arrow">➔</span>
+        </button>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal" hidden>
+        <div class="modal-card">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h3 data-i18n="checkout_title">Emeza Gutumiza</h3>
+            
+            <div class="order-summary-list" id="order-summary-list"></div>
+
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="phone" data-i18n="label_phone">Numero yanyu yanyu ya Telefone (MoMo):</label>
+                    <input type="tel" id="phone" placeholder="0788000000" required pattern="^(078|079|072|073)[0-9]{7}$">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pickup-time" data-i18n="label_time">Igihe cyo gufata ibyo mwatumije:</label>
+                    <select id="pickup-time">
+                        <option value="5" data-i18n="time_5m">Mu minota 5 (Express)</option>
+                        <option value="10" data-i18n="time_10m">Mu minota 10</option>
+                        <option value="15" data-i18n="time_15m">Mu minota 15</option>
+			<option value="30" data-i18n="time_30m">Mu minota 30</option>
+			<option value="45" data-i18n="time_45m">Mu minota 45</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="kfs-btn-primary full-width">
+                    <span data-i18n="pay_now">Ishyura na MoMo</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

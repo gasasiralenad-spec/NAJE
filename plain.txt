@@ -1,0 +1,15 @@
+naje-app/
+│
+├── static/
+│   ├── css/
+│   │   └── styles.css          # Modern, responsive styles & theme design
+│   └── js/
+│       ├── translations.js     # i18n Dictionary (Kinyarwanda, English, French)
+│       └── app.js              # UI interaction, state, dynamic translation & API client
+│
+├── templates/
+│   └── index.html              # Main single-page web app layout with i18n data attributes
+│
+├── app.py                      # Flask RESTful API & Backend Controller
+├── requirements.txt            # Python dependencies
+└── README.md                   # Setup, DB scaling & deployment guidelines

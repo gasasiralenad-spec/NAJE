@@ -1,0 +1,490 @@
+/* ==========================================================================
+   NAJE - FAST FOOD STYLESHEET
+   KFS-Inspired Geometry, Dynamic Colors & Commuter UX Optimization
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --primary-red: #E60023;       /* Vibrant KFS Red */
+    --primary-orange: #FF6B00;    /* Appetizing Fast-Food Amber */
+    --accent-yellow: #FFC72C;    /* Energetic Yellow */
+    --dark-surface: #121212;     /* High-contrast darks */
+    --card-bg: #FFFFFF;
+    --bg-light: #F8F9FA;
+    --text-main: #1C1C1E;
+    --text-muted: #6E6E73;
+    
+    /* Layout & Geometry */
+    --radius-pill: 50px;
+    --radius-card: 20px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 8px 25px rgba(230, 0, 35, 0.35);
+    
+    /* Transitions */
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    padding-bottom: 100px; /* Space for sticky cart bar */
+}
+
+/* Header & KFS Visual Badging */
+.app-header {
+    background: var(--dark-surface);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand-name .dot {
+    color: var(--primary-red);
+}
+
+/* KFS Abstract Geometric Shapes Badge */
+.kfs-badge {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.kfs-badge .shape {
+    display: inline-block;
+}
+
+.kfs-badge .circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+}
+
+.kfs-badge .triangle {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid var(--accent-yellow);
+}
+
+.kfs-badge .pill {
+    width: 14px;
+    height: 8px;
+    background-color: var(--primary-orange);
+    border-radius: 10px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.location-badge {
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-pill);
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.location-badge select {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.location-badge select option {
+    background: var(--dark-surface);
+    color: #fff;
+}
+
+/* Language Selector */
+.lang-selector {
+    display: flex;
+    background: rgba(255,255,255,0.15);
+    border-radius: var(--radius-pill);
+    padding: 2px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lang-btn.active {
+    background: var(--primary-red);
+    color: #fff;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Express Hero Banner */
+.hero-banner {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    color: #fff;
+    border-radius: var(--radius-card);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.speed-badge {
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* Category Filter Navigation */
+.category-nav {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
+    scrollbar-width: none;
+}
+
+.category-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-pill {
+    background: #fff;
+    border: 2px solid #E5E5EA;
+    color: var(--text-main);
+    padding: 8px 20px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cat-pill.active, .cat-pill:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: #fff;
+}
+
+/* Food Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Food Card with KFS Fast-Food Visual Aesthetics */
+.food-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.food-img-wrapper {
+    height: 180px;
+    width: 100%;
+    position: relative;
+    background: #FFF3E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.food-emoji {
+    font-size: 5rem;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+}
+
+.prep-time-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+}
+
+.food-details {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.food-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.food-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.food-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.food-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary-red);
+}
+
+/* Smart, Attractive Action Buttons */
+.kfs-btn-primary {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.kfs-btn-primary:hover {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+}
+
+.kfs-btn-primary:active {
+    transform: scale(0.98);
+}
+
+.kfs-btn-primary.full-width {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Floating Cart Bar */
+.cart-floating-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 600px;
+    background: var(--dark-surface);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: var(--radius-pill);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 90;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 100px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.cart-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-count-badge {
+    background: var(--primary-red);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.cart-label {
+    font-size: 0.8rem;
+    color: #AAA;
+    display: block;
+}
+
+.cart-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-yellow);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 1rem;
+}
+
+.modal-card {
+    background: #fff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: var(--radius-card);
+    padding: 1.8rem;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    padding: 12px;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--dark-surface);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-orange);
+    box-shadow: var(--shadow-soft);
+    z-index: 300;
+}
+
+/* Mobile Responsiveness Rules */
+@media (max-width: 600px) {
+    .hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .brand-name {
+        font-size: 1.3rem;
+    }
+}
